@@ -38,11 +38,15 @@ public class Anagrams{
             System.out.println(firstWord + " and " + secondWord + " are not anagrams");
         }
         */
-        String firstWord = args[0]; String secondWord = args[1];
-        if (AnagramChecker.areAnagrams(firstWord, secondWord)){
-            System.out.println(firstWord + " and " + secondWord + " are anagrams");
-        } else{
-            System.out.println(firstWord + " and " + secondWord + " are not anagrams");
+        boolean good = true;
+        for (int i = 0; i < args.length - 1; i++){
+            if(!AnagramChecker.areAnagrams(args[i], args[i+1])){
+                System.out.println(args[i] + " and " + args[i+1]+ " are not anagrams");
+                good = false;
+                break;
+            }
         }
+        if (good)
+            System.out.println("All entered words are anagrams");
     }
 }
