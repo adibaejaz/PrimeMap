@@ -1,16 +1,15 @@
-import java.util.Scanner;
 public class Anagrams{
 
     final static int MIN_ASCII = 33; final static int MAX_ASCII = 126;
     Character[] asciiArray;
-    PrimeMap asciiMap;
+    PrimeMap<Character> asciiMap;
 
     public Anagrams(){
         asciiArray = new Character[MAX_ASCII - MIN_ASCII + 1];
         for (int i = MIN_ASCII; i <= MAX_ASCII; i++){
             asciiArray[i - MIN_ASCII] = (char) i;
         }
-        asciiMap = new PrimeMap(asciiArray);
+        asciiMap = new PrimeMap<Character>(asciiArray);
     }
 
     public boolean areAnagrams(String firstWord, String secondWord){
@@ -26,18 +25,6 @@ public class Anagrams{
 
     public static void main(String[] args){
         Anagrams AnagramChecker = new Anagrams();
-        /*
-        Scanner input = new Scanner(System.in);
-        System.out.println("enter first word:");
-        String firstWord = input.nextLine();
-        System.out.println("enter second word:");
-        String secondWord = input.nextLine();
-        if (AnagramChecker.areAnagrams(firstWord, secondWord)){
-            System.out.println(firstWord + " and " + secondWord + " are anagrams");
-        } else{
-            System.out.println(firstWord + " and " + secondWord + " are not anagrams");
-        }
-        */
         boolean good = true;
         for (int i = 0; i < args.length - 1; i++){
             if(!AnagramChecker.areAnagrams(args[i], args[i+1])){
