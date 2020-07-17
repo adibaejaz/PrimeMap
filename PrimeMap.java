@@ -1,8 +1,8 @@
 import java.util.HashMap;
 
-public class PrimeMap {
+public class PrimeMap<AnyType> {
 
-    HashMap<Character, Integer> primeMap;
+    HashMap<AnyType, Integer> primeMap;
     private int[] primes;
 
     public PrimeMap(){
@@ -12,17 +12,17 @@ public class PrimeMap {
     }
     
     public PrimeMap(int size){
-        primeMap = new HashMap<Character, Integer>();
+        primeMap = new HashMap<AnyType, Integer>();
         this.primes = new int[size];
         fillPrimes(this.primes);
     } 
 
-    public PrimeMap(Character[] array){
-        primeMap = new HashMap<Character, Integer>();
+    public PrimeMap(AnyType[] array){
+        primeMap = new HashMap<AnyType, Integer>();
         this.primes = new int[array.length];
         fillPrimes(this.primes);
         int counter = 0;
-        for (Character item : array) {
+        for (AnyType item : array) {
             primeMap.put(item, this.primes[counter++]);
         }
     }
