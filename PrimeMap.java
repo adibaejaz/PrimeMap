@@ -46,7 +46,7 @@ public class PrimeMap<AnyType> {
         return true;
     }
 
-    public int getPrime(Character c){
+    public int getPrime(AnyType c){
         return primeMap.get(c);
     }
     
